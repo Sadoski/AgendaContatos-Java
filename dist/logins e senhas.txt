@@ -1,0 +1,8 @@
+Administrador: sadoski
+senha: 123456
+
+Administrador: lucas
+senha: lucas123
+
+Usuario: terezio
+senha: 123

@@ -1,0 +1,89 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.fid.classes;
+
+
+/**
+ *
+ * @author JEFFERSON
+ */
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Graphics;
+import javax.swing.JComponent;
+import javax.swing.JPanel;
+ 
+public class StatusBar extends JPanel {
+ 
+    protected JPanel inserirStatusEsquerda;
+    protected JPanel inserirStatusDireita;
+ 
+    public StatusBar() {
+        createPartControl();
+    }
+ 
+    protected void createPartControl() {    
+        setLayout(new BorderLayout());
+        setPreferredSize(new Dimension(getWidth(), 23));
+ 
+        inserirStatusEsquerda = new JPanel(new FlowLayout(FlowLayout.LEADING, 5, 3));
+        inserirStatusEsquerda.setOpaque(false);
+        add(inserirStatusEsquerda, BorderLayout.WEST);
+ 
+        inserirStatusDireita = new JPanel(new FlowLayout(FlowLayout.TRAILING, 5, 3));
+        inserirStatusDireita.setOpaque(false);
+        add(inserirStatusDireita, BorderLayout.EAST);
+    }
+ 
+    public void setLeftComponent(JComponent component) {
+        inserirStatusEsquerda.add(component);
+    }
+
+    public void addRightComponent(JComponent component) {
+        JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEADING, 5, 0));
+        panel.add(new SeparatorPanel(Color.GRAY, Color.WHITE));
+        panel.add(component);
+        inserirStatusDireita.add(panel);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+ 
+        int y = 0;
+        g.setColor(new Color(156, 154, 140));
+        g.drawLine(0, y, getWidth(), y);
+        y++;
+ 
+        g.setColor(new Color(196, 194, 183));
+        g.drawLine(0, y, getWidth(), y);
+        y++;
+ 
+        g.setColor(new Color(218, 215, 201));
+        g.drawLine(0, y, getWidth(), y);
+        y++;
+ 
+        g.setColor(new Color(233, 231, 217));
+        g.drawLine(0, y, getWidth(), y);
+ 
+        y = getHeight() - 3;
+ 
+        g.setColor(new Color(233, 232, 218));
+        g.drawLine(0, y, getWidth(), y);
+        y++;
+ 
+        g.setColor(new Color(233, 231, 216));
+        g.drawLine(0, y, getWidth(), y);
+        y++;
+ 
+        g.setColor(new Color(221, 221, 220));
+        g.drawLine(0, y, getWidth(), y);
+    }
+
+
+}
