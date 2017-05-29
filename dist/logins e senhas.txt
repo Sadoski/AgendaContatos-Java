@@ -1,8 +1,5 @@
-Administrador: sadoski
-senha: 123456
+Administrador: admin
+senha: 123
 
-Administrador: lucas
-senha: lucas123
-
-Usuario: terezio
+Usuario: usuario
 senha: 123
